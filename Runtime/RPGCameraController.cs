@@ -21,6 +21,9 @@ namespace PuiGame.RPGGameEngine
         [SerializeField]
         private float rotatingSpeed = 5f;
 
+        private Vector3 targetPos;
+        private Quaternion targetRot;
+
         // Update is called once per frame
         void Update()
         {
@@ -30,14 +33,14 @@ namespace PuiGame.RPGGameEngine
 
         private void moveWithTarget()
         {
-            Vector3 targetPos = target.position + offset;
+            targetPos = target.position + offset;
             transform.position = Vector3.Slerp(transform.position, targetPos, movingSpeed * Time.deltaTime);
         }
 
         private void lookAtTarget()
         {
-            Quaternion targetRot = Quaternion.LookRotation(target.position, transform.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, movingSpeed * Time.deltaTime);
+            targetRot = Quaternion.LookRotation(target.position, transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, rotatingSpeed * Time.deltaTime);
         }
     }
 
