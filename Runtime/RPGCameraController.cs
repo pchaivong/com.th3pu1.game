@@ -30,8 +30,8 @@ namespace PuiGame.RPGGameEngine
 
         private void moveWithTarget()
         {
-            Vector3 finalPos = target.position + offset;
-            Vector3 targetPos = Vector3.Slerp(finalPos, transform.position, movingSpeed * Time.deltaTime);
+            Vector3 targetPos = target.position + offset;
+            transform.position = Vector3.Slerp(transform.position, targetPos, movingSpeed * Time.deltaTime);
             transform.position += targetPos;
         }
 
