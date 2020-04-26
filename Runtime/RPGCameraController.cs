@@ -32,7 +32,6 @@ namespace PuiGame.RPGGameEngine
         {
             Vector3 targetPos = target.position + offset;
             transform.position = Vector3.Slerp(transform.position, targetPos, movingSpeed * Time.deltaTime);
-            transform.position += targetPos;
         }
 
         private void lookAtTarget()
