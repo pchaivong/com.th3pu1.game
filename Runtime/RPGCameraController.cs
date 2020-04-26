@@ -39,7 +39,7 @@ namespace PuiGame.RPGGameEngine
 
         private void lookAtTarget()
         {
-            targetRot = Quaternion.LookRotation(target.position, transform.position);
+            targetRot = Quaternion.LookRotation(target.position - transform.position);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, rotatingSpeed * Time.deltaTime);
         }
     }
